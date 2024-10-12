@@ -1,0 +1,451 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>VeterinariaTorres</title>
+        <!-- Incluir aquí tus enlaces a archivos CSS y Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+
+
+    <style>
+        body {
+            background-image: url("{% static 'img/perro.jpeg' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            position: relative;
+        }
+
+        .nav-link:hover::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 100%;
+            height: 2px;
+            background-color: blue;
+        }
+
+        .navbar-scrolled {
+            background-color: #007BFF !important;
+        }
+
+        .header h1, .header h2 {
+            text-align: center;
+            color: blue;
+        }
+
+        .btn {
+            display: block;
+            margin: 10px auto;
+            width: 200px;
+            background-color: blue;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .info-content, .info-content1, .info-content2, .info-content3 {
+            text-align: center;
+            color: blue;
+        }
+
+        .info-content img, .info-content1 img, .info-content2 img, .info-content3 img {
+            width: 100%;
+            max-width: 200px;
+        }
+
+        .info-content p, .info-content1 p, .info-content2 p, .info-content3 p {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .footer {
+            background-color: #f2f2f2;
+            color: #333;
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+            border-top: 2px solid #ccc;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar-brand, .nav-link {
+                font-size: 14px;
+            }
+            .header h1, .header h2 {
+                font-size: 24px;
+            }
+            .btn {
+                width: 100%;
+                max-width: 200px;
+            }
+            .info-content p, .info-content1 p, .info-content2 p, .info-content3 p {
+                font-size: 16px;
+            }
+        }
+    </style>
+    
+    <style>
+        .nav-link {
+            text-decoration: none; /* Quita el subrayado predeterminado */
+            position: relative; /* Para posicionar el pseudo-elemento */
+        }
+    
+        .nav-link:hover::after {
+            content: ''; /* Agrega un pseudo-elemento */
+            position: absolute; /* Posiciona relativo al enlace */
+            left: 0; /* Comienza desde la izquierda */
+            bottom: -2px; /* Coloca el subrayado debajo del texto */
+            width: 100%; /* Ancho completo */
+            height: 7px; /* Grosor del subrayado */
+            background-color: blue; /* Color del subrayado */
+        }
+    </style>
+
+<style>
+    /* Estilos para los enlaces dentro de la barra de navegación */
+    .navbar-nav .nav-link {
+        font-size: 25px; /* Tamaño de la fuente de los enlaces */
+        text-decoration: none; /* Elimina el subrayado */
+        color: #fff; /* Color del texto de los enlaces */
+        padding: 10px 15px; /* Espacio alrededor del texto del enlace */
+        display: inline-block; /* Permite aplicar padding */
+    }
+
+    
+    /* Cambia el color del texto de los enlaces cuando la barra está desplazada */
+    .navbar-scrolled .nav-link {
+        color: #fff !important; /* Cambia el color del texto de los enlaces a blanco */
+    }
+</style>
+
+<style>
+    /* Estilos para la barra de navegación */
+    .navbar {
+        position: fixed; /* Mantiene la barra de navegación fija en la parte superior */
+        top: 0;
+        width: 100%;
+        background-color: transparent; /* Fondo transparente por defecto */
+        transition: background-color 0.3s, box-shadow 0.3s; /* Transición suave para el cambio de fondo y sombra */
+    }
+
+    .navbar-scrolled {
+        background-color: #333; /* Cambia el color de fondo cuando se desplaza */
+        color: #fff; /* Cambia el color del texto cuando se desplaza */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Agrega una sombra cuando se desplaza */
+    }
+</style>
+
+    <<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(window).scroll(function() { 
+                var scroll = $(window).scrollTop(); 
+
+                if (scroll > 100) { 
+                    $(".navbar").addClass("navbar-scrolled"); 
+                } else {
+                    $(".navbar").removeClass("navbar-scrolled"); 
+                }
+            });
+        });
+    </script>
+
+    </head>
+
+    <body>
+
+        <!-- Barra de navegación -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #007BFF; width: 100%; margin: 0;">
+        <img src="{% static 'img/LogoVT.jpg' %}" alt="Perro" class="logo "style="width: 80px;">
+        <a class="navbar-brand" href="#">Veterinaria las Torres</a>
+            
+           
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+         
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent"> <!-- Cambiado para alinear a la derecha -->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'principal' %}">Inicio</a>
+                </li>
+               <!-- <li class="nav-item">
+                    <a class="nav-link" href="{% url 'servicios' %}"></a>
+                </li>-->
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'agendar_cita' %}">Citas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'catalogo_urnas' %}">Urnas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'precios_servicios' %}">Precios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contacto' %}">Contacto</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'iniciar_sesion' %}">Iniciar Sesión o Registrarse</a>
+                </li>
+            </ul>
+        </div>
+        
+    </nav>
+        
+    {% block content %}
+    <div style="margin: 0; padding: 10;"> <!-- Elimina los márgenes y rellenos del cuerpo de la página -->
+        <header class="header">
+            <section class="razamini-section" style="background-color:white; width: 100%; height: auto; padding: 90px;">
+                <h1 style="color: blue; font-size: 40px; font-weight: bold;">Catalogo y Precias</h1>
+                
+                <div style="text-align: center; margin-top: 50px;">
+                    <img src="{% static 'img/Raza_mini.jpeg' %}" alt="rasa_mini" class="pets "style="width: 100%; max-width: 100px; display: inline-block">
+                    <p style="color: #000; font-size: 20px; font-weight: bool;">Razas Mini</p>
+                </div>
+                <div class="info-content" style="display: flex; justify-content: center; margin-top: 50px;">
+
+                    <div style="width: 90%;">
+                        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                            
+                            <div style="width: 180px; text-align: center; margin: 0 10px;">
+                                <img src="{% static 'img/img_urna1.jpeg' %}" alt="servicios" style="width: 80%; display: block; margin: 0 auto;">
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">$ 1,000 pesos </p>
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">urna de ceramica</p>
+                            </div>
+                            <div style="width: 180px; text-align: center; margin: 0 10px;">
+                                <img src="{% static 'img/urna_cencilla1.jpeg' %}" alt="cirugias3" style="width: 100%; display: block; margin: 0 auto;">
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">sin costo con el servicio</p>
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">urna de madera basica</p>
+                            </div>
+                            <div style="width: 150px; text-align: center; margin:  0 10px;">
+                                <img src="{% static 'img/urna_ceramica2.jpeg' %}" alt="estetica" style="width: 100%; display: block; margin: 0 auto;">
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">$ 600 pesos</p>
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">urna de ceramica chica</p>
+                            </div>
+                            <div style="width: 140px; text-align: center; margin: 0 10px;">
+                                <img src="{% static 'img/urna_madera.jpeg' %}" alt="plagas" style="width: 100%; display: block; margin: 0 auto;">
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">$ 400 pesos</p>
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">urna de madera de lujo</p> 
+                            </div>
+                            
+                            <!-- Repite este patrón para las siguientes imágenes -->
+                        </div>
+                    </div>
+                </div>
+                <!--segunda fila-->
+
+
+                <div class="info-content" style="display: flex; justify-content: center; margin-top: 50px;">
+
+                    <div style="width: 90%;">
+                        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                            
+                            
+                            <div style="width: 150px; text-align: center; margin:  0 10px;">
+                                <img src="{% static 'img/urnas_miniA.jpeg' %}" alt="estetica" style="width: 80%; display: block; margin: 0 auto;">
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">$ 600 pesos </p>
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">urna de ceramica decorada </p>
+                            </div>
+                            <div style="width: 140px; text-align: center; margin: 0 10px;">
+                                <img src="{% static 'img/urna_casa2.jpeg' %}" alt="plagas" style="width: 100%; display: block; margin: 0 auto;">
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">$ 300 pesos </p>
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">urna de madera con porta retrato</p> 
+                            </div>
+                            <div style="width: 140px; text-align: center; margin: 0 10px;">
+                                <img src="{% static 'img/urna_tres.jpeg' %}" alt="plagas" style="width: 100%; height: 100px; display: block; margin: 0 auto;">
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">$ 500 pesos</p>
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">urna de creamica cica, mediana y grande</p> 
+                            </div>
+                            <div style="width: 140px; text-align: center; margin: 0 10px;">
+                                <img src="{% static 'img/urna_mad.jpeg' %}" alt="plagas" style="width: 100%;  display: block; margin: 0 auto;">
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">$ 200 pesos</p>
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">urna de madera de cedro chica, mediana y grande para aves</p> 
+                            </div>
+                            <!-- Repite este patrón para las siguientes imágenes -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- seccion raza mediana-->
+            <section class="razaPeq-section" style="background-color:white; width: 100%; height: auto; padding: 10px;">
+                <!--<h1 style="color: blue; font-size: 40px; font-weight: bold;">Catalogo y Precias</h1> -->
+                
+                <div style="text-align: center; margin-top: 50px;">
+                    <img src="{% static 'img/raza_pequenia1.jpg' %}" alt="rasa_med" class="pets "style="width: 100%; max-width: 100px; display: inline-block">
+                    <p style="color: #000; font-size: 20px; font-weight: bool;">Razas Pequeñas</p>
+                </div>
+                <div class="info-content" style="display: flex; justify-content: center; margin-top: 50px;">
+
+                    <div style="width: 90%;">
+                        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                            
+                            <div style="width: 180px; text-align: center; margin: 0 10px;">
+                                <img src="{% static 'img/urna_gato.jpeg' %}" alt="servicios" style="width: 80%; display: block; margin: 0 auto;">
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">$ 700 pesos</p>
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">urna de ceramica decorada</p>
+                            </div>
+                            <div style="width: 180px; text-align: center; margin: 0 10px;">
+                                <img src="{% static 'img/urna_maple1.jpeg' %}" alt="cirugias3" style="width: 80%; display: block; margin: 0 auto;">
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">$ 500 peso</p>
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">urna de madera con porta retrato</p>
+                            </div>
+                            <div style="width: 150px; text-align: center; margin:  0 10px;">
+                                <img src="{% static 'img/urna_gato1.jpeg' %}" alt="estetica" style="width: 100%; display: block; margin: 0 auto;">
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">$ 350 pesos</p>
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">urna de ceramica</p>
+                            </div>
+                            <div style="width: 140px; text-align: center; margin: 0 10px;">
+                                <img src="{% static 'imagenes_files/image004.jpg' %}" alt="plagas" style="width: 100%; display: block; margin: 0 auto;">
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">$ 500 pesos</p>
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">urna de lujo de madera de caoba </p> 
+                            </div>
+                            <!-- Repite este patrón para las siguientes imágenes -->
+                        </div>
+                    </div>
+
+                    
+                </div>
+
+                <div class="info-content" style="display: flex; justify-content: center; margin-top: 50px;">
+
+                    <div style="width: 90%;">
+                        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                            
+                            <div style="width: 180px; text-align: center; margin: 0 10px;">
+                                <img src="{% static 'img/urna_madera1.jpeg' %}" alt="servicios" style="width: 80%; display: block; margin: 0 auto;">
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">$ 400 pesos</p>
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">urna de lujo de madera de cedro </p>
+                            </div>
+                            <div style="width: 180px; text-align: center; margin: 0 10px;">
+                                <img src="{% static 'img/urna_perro.jpeg' %}" alt="cirugias3" style="width: 80%; display: block; margin: 0 auto;">
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">$ 400 pesos</p>
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">urna de madera de con porta retrato</p>
+                            </div>
+                            <div style="width: 150px; text-align: center; margin:  0 10px;">
+                                <img src="{% static 'img/urna_verde.jpeg' %}" alt="estetica" style="width: 100%; display: block; margin: 0 auto;">
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">$350 pesos</p>
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">urna de ceramica decorada</p>
+                            </div>
+                            <div style="width: 140px; text-align: center; margin: 0 10px;">
+                                <img src="{% static 'img/urna_ceraB.jpeg' %}" alt="plagas" style="width: 100%; display: block; margin: 0 auto;">
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">$ 500 pesos</p>
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">urna de ceramica decorada</p> 
+                            </div>
+                            <!-- Repite este patrón para las siguientes imágenes -->
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!--Seccion Raza Mediana-->
+
+            <!-- seccion raza mediana-->
+            <section class="razaMed-section" style="background-color:white; width: 100%; height: auto; padding: 10px;">
+                <!--<h1 style="color: blue; font-size: 40px; font-weight: bold;">Catalogo y Precias</h1> -->
+                
+                <div style="text-align: center; margin-top: 50px;">
+                    <img src="{% static 'img/Raza_mediana1.jpg' %}" alt="rasa_med" class="pets "style="width: 100%; max-width: 200px; height: 200px; display: inline-block">
+                    <p style="color: #000; font-size: 20px; font-weight: bool;">Razas Medianas</p>
+                </div>
+                <div class="info-content" style="display: flex; justify-content: center; margin-top: 50px;">
+
+                    <div style="width: 90%;">
+                        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                            
+                            <div style="width: 180px; text-align: center; margin: 0 10px;">
+                                <img src="{% static 'img/urna_cera.jpeg' %}" alt="servicios" style="width: 100%; display: block; margin: 0 auto;">
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">$ 500 pesos</p>
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">urna de ceramica</p>
+                            </div>
+                            <div style="width: 180px; text-align: center; margin: 0 10px;">
+                                <img src="{% static 'img/urna_madC.jpeg' %}" alt="cirugias3" style="width: 100%; display: block; margin: 0 auto;">
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">$ 450 pesos</p>
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">urna de madera con huellitas</p>
+                            </div>
+                            <div style="width: 150px; text-align: center; margin:  0 10px;">
+                                <img src="{% static 'img/urna_perro.jpeg' %}" alt="estetica" style="width: 100%; display: block; margin: 0 auto;">
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">$ 400 pesos</p>
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">urna de madera con porta retrato</p>
+                            </div>
+                            <div style="width: 140px; text-align: center; margin: 0 10px;">
+                                <img src="{% static 'img/urna_maderaR.jpeg' %}" alt="plagas" style="width: 100%; display: block; margin: 0 auto;">
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">$ 500 pesos</p>
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">urna redonda de madera de cedro</p> 
+                            </div>
+                            <!-- Repite este patrón para las siguientes imágenes -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--Seccion raza grande-->
+
+            <section class="razaGrn-section" style="background-color:white; width: 100%;  height: auto; padding: 80px;">
+                <!--<h1 style="color: blue; font-size: 40px; font-weight: bold;">Catalogo y Precias</h1> -->
+                
+                <div style="text-align: center; margin-top: 20px;">
+                    <img src="{% static 'img/Raza_grande2.jpg' %}" alt="rasa_med" class="pets "style="width: 100%; max-width: 300px; height: 350px; display: inline-block">
+                    <p style="color: #000; font-size: 20px; font-weight: bool;">Razas Grande</p>
+                </div>
+                <div class="info-content" style="display: flex; justify-content: center; margin-top: 50px;">
+
+                    <div style="width: 90%;">
+                        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; ">
+                            
+                            <div style="width: 180px; text-align: center; margin: 0 10px;">
+                                <img src="{% static 'img/urna_maple1.jpeg' %}" alt="servicios" style="width: 100%; display: block; margin: 0 auto;">
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">$ 500 pesos</p>
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">urna de madera con porta retrato</p>
+                            </div>
+                            <div style="width: 180px; text-align: center; margin: 0 10px;">
+                                <img src="{% static 'img/urna_ceraD.jpeg' %}" alt="cirugias3" style="width: 80%; display: block; margin: 0 auto;">
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">$ 900 pesos </p>
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">urna de ceramica decorada</p>
+                            </div>
+                            <div style="width: 150px; text-align: center; margin:  0 10px;">
+                                <img src="{% static 'img/urna_cencilla1.jpeg' %}" alt="estetica" style="width: 100%; height: 70%; display: block; margin: 0 auto;">
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">sin costo con el servicio</p>
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">urna basica de madera</p>
+                            </div>
+                            <div style="width: 140px; text-align: center; margin: 0 10px;">
+                                <img src="{% static 'img/urna_madA.jpeg' %}" alt="plagas" style="width: 100%; height: 65%; display: block; margin: 0 auto;">
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">$ 300 pesos </p>
+                                <p style="color: blue; font-size: 20px; font-weight: bold; margin: 0 auto;">urna de madra tipo cofre</p> 
+                            </div>
+                            <!-- Repite este patrón para las siguientes imágenes -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </header>   
+
+            <footer class="footer" style="background-color: #f2f2f2; color: #333; padding: 20px; text-align: center; font-size: 18px; border-top: 2px solid #ccc; ">
+
+                <p>© 2023 Veterinaria las Torres. Todos los derechos reservados.</p>
+            </footer>
+        </div>
+        {% endblock %}
+        
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    
+    </body>
+<html>    

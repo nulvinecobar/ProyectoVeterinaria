@@ -1,0 +1,120 @@
+{% extends 'pagina_principal.html' %}
+
+{% block content %}
+
+<style>
+  form {
+      width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f2f2f2;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+  .form-group {
+      margin-bottom: 15px;
+  }
+  label {
+      display: block;
+      font-weight: bold;
+  }
+  input {
+      width: calc(100% - 10px);
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 5px;
+      border: 1px solid #cccccc;
+      box-sizing: border-box;
+  }
+  .btn-green {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+  }
+  .btn-green:hover {
+      background-color: #45a049;
+  }
+  .error {
+      color: red;
+      font-size: 12px;
+      margin-top: 5px;
+  }
+</style>
+
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f8f9fa;">
+    <div class="register-container">
+      {% if form.errors %}
+        <div class="errors">
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            {% endfor %}
+        </div>
+      {% endif %}
+      <h2 style="margin-bottom: 20px; color: #333;">Registrarse</h2>
+      <form method="post" id="register-form" style="margin: 0 auto;">
+        {% csrf_token %}
+      
+        <!-- Campo de nombre de usuario -->
+        <div class="form-group" style="margin-bottom: 15px;">
+          <label for="username" style="font-weight: bold;">Usuario</label>
+          <input type="text" id="username" name="username" value="{{ form.username.value|default:'' }}" class="form-control" style="width: 100%; height: 40px; padding: 5px;" placeholder="Usuario" required>
+          {% for error in form.username.errors %}
+            <div class="error">{{ error }}</div>
+          {% endfor %}
+        </div>
+      
+        <!-- Campo de correo electrónico -->
+        <div class="form-group" style="margin-bottom: 15px;">
+          <label for="email" style="font-weight: bold;">Correo electrónico</label>
+          <input type="email" id="email" name="email" value="{{ form.email.value|default:'' }}" class="form-control" style="width: 100%; height: 40px; padding: 5px;" placeholder="Correo electrónico" required>
+          {% for error in form.email.errors %}
+            <div class="error">{{ error }}</div>
+          {% endfor %}
+        </div>
+      
+        <!-- Campo de número de WhatsApp -->
+        <div class="form-group" style="margin-bottom: 15px;">
+          <label for="whatsapp_number" style="font-weight: bold;">Número de WhatsApp</label>
+          <input type="text" id="whatsapp_number" name="whatsapp_number" value="{{ form.whatsapp_number.value|default:'' }}" class="form-control" style="width: 100%; height: 40px; padding: 5px;" placeholder="Número de WhatsApp">
+          {% for error in form.whatsapp_number.errors %}
+            <div class="error">{{ error }}</div>
+          {% endfor %}
+        </div>
+      
+        <!-- Campo de contraseña -->
+        <div class="form-group" style="margin-bottom: 15px;">
+          <label for="password1" style="font-weight: bold;">Contraseña</label>
+          <input type="password" id="password1" name="password1" class="form-control" style="width: 100%; height: 40px; padding: 5px;" placeholder="Contraseña" required>
+          {% for error in form.password1.errors %}
+            <div class="error">{{ error }}</div>
+          {% endfor %}
+        </div>
+      
+        <!-- Campo de confirmación de contraseña -->
+        <div class="form-group" style="margin-bottom: 15px;">
+          <label for="password2" style="font-weight: bold;">Confirmar Contraseña</label>
+          <input type="password" id="password2" name="password2" class="form-control" style="width: 100%; height: 40px; padding: 5px;" placeholder="Confirmar Contraseña" required>
+          {% for error in form.password2.errors %}
+            <div class="error">{{ error }}</div>
+          {% endfor %}
+        </div>
+      
+        <!-- Botón de registro -->
+        <div style="text-align: center;">
+          <button type="submit" class="btn-green">Registrarse</button>
+        </div>
+      
+        <!-- Enlace a iniciar sesión -->
+        
+      </form>
+    </div>
+</div>
+
+
+{% endblock %}

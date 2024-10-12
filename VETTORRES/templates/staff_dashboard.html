@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Staff Dashboard</title>
+</head>
+<body>
+    <h1>Dashboard</h1>
+    
+    <h2>Citas</h2>
+    <ul>
+        {% for cita in citas %}
+            <li>{{ cita.usuario }} - {{ cita.mascota }} - {{ cita.fecha }} - {{ cita.hora }} - {{ cita.motivo }}</li>
+        {% endfor %}
+    </ul>
+    
+    <h2>Comentarios</h2>
+    <ul>
+        {% for comentario in comentarios %}
+            <li>{{ comentario.usuario }}: {{ comentario.comentario }} - {{ comentario.rating }} estrellas</li>
+        {% endfor %}
+    </ul>
+    
+    <h2>Contactos</h2>
+    <ul>
+        {% for contacto in contactos %}
+            <li>{{ contacto.nombre }} - {{ contacto.email }} - {{ contacto.telefono }} - {{ contacto.comentario }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

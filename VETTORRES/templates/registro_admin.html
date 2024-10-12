@@ -1,0 +1,28 @@
+{% extends 'pagina_principal.html' %}
+
+
+{% block content %}
+
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <div class="login-container text-center">
+      <!--<div class="messages">
+        {% for message in messages %}
+        <div class="alert alert-success" role="alert">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>-->
+    <h2>Registro de Administrador</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        
+        <button type="submit">Registrarse como Administrador</button>
+    </form>
+    
+    </div>
+  </div>
+
+  
+{% endblock %}

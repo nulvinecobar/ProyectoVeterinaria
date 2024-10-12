@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    
+    <h2>Citas</h2>
+    <ul>
+        {% for cita in citas %}
+            <li>{{ cita.usuario }} - {{ cita.mascota }} - {{ cita.fecha }} - {{ cita.hora }} - {{ cita.motivo }}</li>
+        {% endfor %}
+    </ul>
+    
+    <h2>Comentarios</h2>
+    <ul>
+        {% for comentario in comentarios %}
+            <li>{{ comentario.usuario }}: {{ comentario.comentario }} - {{ comentario.rating }} estrellas</li>
+        {% endfor %}
+    </ul>
+    
+    <h2>Contactos</h2>
+    <ul>
+        {% for contacto in contactos %}
+            <li>{{ contacto.nombre }} - {{ contacto.email }} - {{ contacto.telefono }} - {{ contacto.comentario }}</li>
+        {% endfor %}
+    </ul>
+    
+    <h2>Gestión de Permisos</h2>
+    <p><a href="{% url 'admin:auth_user_changelist' %}">Gestionar usuarios</a></p>
+    <p><a href="{% url 'admin:auth_group_changelist' %}">Gestionar grupos</a></p>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{% extends 'pagina_principal.html' %}
+
+{% block content %}
+    <h1>Detalles de la Cita</h1>
+    <p>ID: {{ cita.id }}</p>
+    <p>Fecha: {{ cita.fecha }}</p>
+    <p>Hora: {{ cita.hora }}</p>
+    <p>Motivo: {{ cita.motivo }}</p>
+
+    <!-- Enlace para cancelar la cita -->
+    <a href="{% url 'cancelar_cita' cita_id=cita.id %}" class="btn btn-danger">Cancelar Cita</a>
+{% endblock %}

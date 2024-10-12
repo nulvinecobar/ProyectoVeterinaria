@@ -1,0 +1,244 @@
+/* Estilos para el formulario */
+form {
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+select:focus {
+  border-color: #007BFF; /* Color de borde al enfocarse */
+  outline: none; /* Elimina el borde de enfoque predeterminado */
+}
+/* estilos botones solicitar servicio y enviar en citas*/
+button,
+.btn {
+  width: 100%;
+  padding: 10px;
+  font-weight: bold;
+  background-color: #45a049;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+button:hover,
+.btn:hover {
+  background-color: #45a049; /* Color de fondo al pasar sobre el botón */
+}
+
+/* Estilos para las etiquetas */
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Mensajes de error */
+.error {
+  color: red;
+  margin-top: 5px;
+}
+
+/* Estilos para la barra de navegación */
+.nav {
+  padding: 35px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #007BFF;
+  width: 100%;
+  margin: 0;
+  transition: background-color 0.3s;
+}
+
+.navbar-nav {
+  margin-left: auto;
+  margin-right: 200px;
+}
+
+.nav:hover {
+  background-color: #0056b3; /* Nuevo color de fondo al pasar el cursor */
+}
+
+.logo {
+  width: 50px;
+  cursor: pointer;
+}
+
+.navbar ul {
+  margin: 0;
+  padding: 0;
+  display: flex; /* Flexbox para alinear horizontalmente los elementos */
+}
+
+.navbar ul li {
+  list-style: none;
+  margin: 0 20px;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: white;
+  font-family: Roboto, "sans-serif";
+  font-size: 1.2rem;
+  position: relative;
+  transition: color 0.3s; /* Transición suave del color */
+}
+
+
+/* Estilos para el encabezado */
+.header {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.registro-message {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #555;
+}
+
+.registro-message a {
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+/* Estilos para la sección de urnas */
+.urnas-section {
+  padding: 20px;
+  background-color: #f2f2f2;
+  text-align: center;
+}
+
+.image-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.image-list li {
+  margin: 10px;
+}
+
+.image-list img {
+  width: 200px;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.image-list p {
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+/* Estilos para los mensajes de error */
+.input-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-container input {
+  width: calc(100% - 10px);
+  height: 50px;
+}
+
+.error-message {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: calc(100% - 10px);
+  color: red;
+  font-size: 0.875em;
+  display: none; /* Inicialmente oculto */
+  border: 1px solid red;
+  background-color: #f8d7da;
+  padding: 5px;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.input-container.has-error .error-message {
+  display: block; /* Mostrar el mensaje de error si hay un error */
+}
+
+
+
+    /* Estilo
+
+    /* Estilo básico para los enlaces */
+    a {
+        text-decoration: none; /* Quitar el subrayado predeterminado */
+        color: inherit; /* Mantener el color actual del texto */
+        position: relative; /* Para usar el pseudo-elemento ::after */
+    }
+
+    /* Subrayado azul al pasar el mouse */
+    a::after {
+        content: ''; /* Pseudo-elemento vacío para crear el subrayado */
+        position: absolute;
+        left: 0;
+        bottom: -2px; /* Ajusta la posición del subrayado debajo del texto */
+        width: 100%;
+        height: 5px; /* Grosor del subrayado */
+        background-color: blue; /* Color azul del subrayado */
+        transition: width 0.3s; /* Efecto suave al pasar el mouse */
+        width: 0; /* Inicialmente no se muestra */
+    }
+
+    a:hover::after {
+        width: 100%; /* Expande el subrayado cuando pasas el mouse */
+    }
+
+
+    .form-group {
+      margin-bottom: 15px; /* Espaciado entre los grupos de formulario */
+  }
+  
+  input[type="text"] {
+      width: calc(100% - 10px); /* Ajusta el ancho para que ocupe todo el contenedor */
+      height: 50px; /* Altura uniforme para todos los campos */
+      padding: 5px; /* Espaciado interno para mejor apariencia */
+      border: 1px solid #ced4da; /* Borde uniforme */
+      border-radius: 4px; /* Bordes redondeados */
+      font-size: 16px; /* Tamaño de fuente uniforme */
+  }
+  
+  .btn-green {
+      background-color: #28a745; /* Color de fondo */
+      color: white; /* Color del texto */
+      border: none; /* Sin borde */
+      border-radius: 4px; /* Bordes redondeados */
+      padding: 10px 20px; /* Espaciado interno */
+      font-size: 16px; /* Tamaño de fuente */
+      cursor: pointer; /* Cambia el cursor al pasar el ratón */
+  }
+  
+  .btn-green:hover {
+      background-color: #218838; /* Color de fondo al pasar el ratón */
+  }

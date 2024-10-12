@@ -1,0 +1,15 @@
+{% extends 'pagina_principal.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="servicios-heading">Nuestros Servicios</h1>
+    <p class="descripcion">{{ descripcion }}</p>
+
+    <h2 class="subheading">Servicios Destacados</h2>
+    <ul class="servicios-destacados">
+        {% for servicio in servicios_destacados %}
+            <li>{{ servicio }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

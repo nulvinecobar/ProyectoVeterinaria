@@ -1,0 +1,13 @@
+{% extends 'pagina_principal.html' %}
+
+{% block content %}
+  <div style="display: flex; justify-content: center; align-items: center; height: 90vh;">
+    <div style="text-align: center; width: 100%; height: 90%; margin-top: 100px;">
+      <div class="alert alert-success" role="alert">
+        <h2>¡Gracias por contactarnos!</h2>
+        <p>Tu mensaje ha sido enviado con éxito. Nos pondremos en contacto contigo lo antes posible.</p>
+      </div>
+      <a href="{% url 'principal' %}" class="btn btn-primary">Volver a la página principal</a>
+    </div>
+  </div>
+{% endblock %}

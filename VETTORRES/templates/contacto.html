@@ -1,0 +1,59 @@
+{% extends 'pagina_principal.html' %}
+
+{% block content %}
+  <div style="display: flex; justify-content: center; align-items: center; height: 90vh; margin-top: 80px;">
+    <div style="text-align: center; width: 100%; max-width: 500px; height: 90%; margin-top: 100px;">
+      
+      <div class="messages">
+        {% for message in messages %}
+        <div class="alert alert-success" role="alert">
+            {{ message }}
+        </div>
+        {% endfor %}
+      </div>
+        
+      <form method="post" action="{% url 'contacto' %}" style="width: 100%; height: auto; margin-top: 10px;">
+        
+        <h2>Contáctanos</h2>
+        {% csrf_token %}
+        
+        <div style="margin-bottom: 20px;">
+          <label for="id_nombre" style="margin-top: 30px;">Nombre:</label>
+          <input type="text" id="id_nombre" name="nombre" required style="width: 100%; height: 50px; padding: 10px; box-sizing: border-box;">
+        </div>
+        
+        <div style="margin-bottom: 20px;">
+          <label for="id_email">Email:</label>
+          <input type="email" id="id_email" name="email" required style="width: 100%; height: 50px; padding: 10px; box-sizing: border-box;">
+          <div class="error-message">
+            {% if form.email.errors %}
+                {% if form.email.errors.0 == "Enter a valid email address." %}
+                    El correo electrónico debe ser de un dominio válido (gmail.com, hotmail.com, o .mx).
+                {% else %}
+                    {{ form.email.errorserrors }}
+                {% endif %}
+            {% endif %}
+          </div>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+          <label for="id_telefono">Teléfono:</label>
+          <input type="tel" id="id_telefono" name="telefono" placeholder="5551234567" 
+          required style="width: 100%; height: 50px; padding: 10px; box-sizing: border-box;" 
+          pattern="\d{10}" 
+          title="El número de teléfono debe tener exactamente 10 dígitos, sin espacios ni guiones.">
+        </div>
+
+        <div style="margin-bottom: 20px;">
+          <label for="id_comentario">Consulta o Duda:</label>
+          <textarea id="id_comentario" name="comentario" rows="4" required style="width: 100%; height: 100px; padding: 10px; box-sizing: border-box;"></textarea>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; margin-top: 20px;">
+          <button type="submit" style="background-color: green; color: white; max-width: 180px; padding: 10px;">Enviar</button>
+          <button type="reset" style="background-color: red; color: white; max-width: 180px; padding: 10px;">Borrar formulario</button>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,419 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VeterinariaTorres</title>
+    <!-- Incluir aquí tus enlaces a archivos CSS y Bootstrap -->
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Cargar jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+   
+    <!-- Estilos personalizados -->
+    <!--<link rel="stylesheet" href="{% static 'css/estilos.css' %}">-->
+
+    <!-- Enlazar CSS Floating WhatsApp -->
+    <link rel="stylesheet" href="https://rawcdn.githack.com/jerfeson/floating-whatsapp/0310b4cd88e9e55dc637d1466670da26b645ae49/floating-wpp.min.css">
+
+    <!-- Enlazar JS Floating WhatsApp -->
+    <script type="text/javascript" src="https://rawcdn.githack.com/jerfeson/floating-whatsapp/0310b4cd88e9e55dc637d1466670da26b645ae49/floating-wpp.min.js"></script>
+
+    <style>
+        body {
+            background-image: url("#");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    
+        /* Estilos para la barra de navegación */
+        .navbar {
+            position: fixed; /* Mantiene la barra de navegación fija en la parte superior */
+            top: 0;
+            width: 100%;
+            background-color: transparent; /* Fondo transparente por defecto */
+            transition: background-color 0.3s, box-shadow 0.3s; /* Transición suave */
+            z-index: 1000; /* Asegura que esté por encima de otros elementos */
+        }
+    
+        .navbar-scrolled {
+            background-color: #333; /* Cambia el color de fondo cuando se desplaza */
+            color: #fff !important; /* Cambia el color del texto */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Agrega sombra */
+        }
+    
+        /* Estilos para enlaces dentro de la barra de navegación */
+        .navbar-nav .nav-link {
+            font-size: 25px; /* Tamaño de la fuente de los enlaces */
+            text-decoration: none; /* Elimina el subrayado */
+            color: #fff; /* Color del texto */
+            padding: 10px 15px; /* Espacio alrededor del texto */
+            display: inline-block; /* Permite aplicar padding */
+        }
+    
+        .nav-link:hover {
+            color: #ccc; /* Cambia el color del texto al pasar el ratón */
+        }
+    
+        .header h1, .header h2, .info-content, .info-content1, .info-content2, .info-content3 {
+            text-align: center;
+            color: blue;
+        }
+    
+        /* Otros estilos... (tu CSS previo aquí) */
+    </style>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(window).scroll(function() { 
+                var scroll = $(window).scrollTop(); 
+    
+                if (scroll > 100) { 
+                    $(".navbar").addClass("navbar-scrolled"); 
+                } else {
+                    $(".navbar").removeClass("navbar-scrolled"); 
+                }
+            });
+        });
+    </script>
+
+<style>
+    .mis-citas-float-btn {
+        position: fixed;
+        top: 250px;
+        /*bottom: 20px;  Distancia desde la parte inferior */
+        right: 20px;  /* Distancia desde la parte derecha */
+        z-index: 1000; /* Asegura que el botón esté por encima de otros elementos */
+        background-color: #007bff; /* Color de fondo del botón */
+        color: white; /* Color del texto */
+        padding: 10px 20px; /* Espaciado interno del botón */
+        border-radius: 5px; /* Bordes redondeados */
+        text-decoration: none; /* Eliminar subrayado del enlace */
+        font-weight: bold; /* Texto en negrita */
+    }
+
+    .mis-citas-float-btn:hover {
+        background-color:#007bff; /* Cambiar color al pasar el ratón */
+    }
+</style>
+
+<style>
+    /* Estilos para la barra de navegación */
+    .navbar {
+        position: fixed; /* Mantiene la barra de navegación fija en la parte superior */
+        top: 0;
+        width: 100%;
+        background-color: transparent; /* Fondo transparente por defecto */
+        transition: background-color 0.3s, box-shadow 0.3s; /* Transición suave para el cambio de fondo y sombra */
+    }
+
+    .navbar-scrolled {
+        background-color: #007bff; /* Cambia el color de fondo cuando se desplaza */
+        color: #fff !important; /* Cambia el color del texto cuando se desplaza */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Agrega una sombra cuando se desplaza */
+    }
+
+    /* Cambia el color del texto de los enlaces cuando la barra está desplazada */
+    .navbar-scrolled .nav-link {
+        color: #fff !important; /* Cambia el color del texto de los enlaces a blanco */
+    }
+</style>
+
+    <style>
+        .float-btn {
+            position: fixed; /* Posiciona el botón de manera fija en la pantalla */
+            top: 200px; /* Espacio desde la parte superior de la pantalla */
+            /*bottom: 20px; /* Espacio desde la parte inferior de la pantalla */
+            right: 20px; /* Espacio desde la parte derecha de la pantalla */
+            z-index: 1000; /* Asegura que el botón esté encima de otros elementos */
+            font-size: 16px; /* Tamaño del texto del botón */
+            padding: 10px 20px; /* Espacio interno del botón */
+        }
+
+        /* estilos para el boton flotante*/
+        .btn-primary {
+            background-color: #007bff; /* Color de fondo del botón */
+            color: white; /* Color del texto del botón */
+            border: none; /* Elimina el borde del botón */
+            border-radius: 5px; /* Bordes redondeados del botón */
+            text-decoration: none; /* Elimina el subrayado del enlace */
+            display: inline-block; /* Asegura que el botón tenga un tamaño adecuado */
+            transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+        }
+
+        
+
+        .btn-primary:hover {
+            background-color: #0056b3; /* Color de fondo del botón cuando se pasa el ratón por encima */
+        }
+
+
+    </style>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $(window).scroll(function() { 
+                    var scroll = $(window).scrollTop(); 
+
+                    if (scroll > 100) { 
+                        $(".navbar").addClass("navbar-scrolled"); 
+                    } else {
+                        $(".navbar").removeClass("navbar-scrolled"); 
+                    }
+                });
+            });
+        </script>
+
+
+</head>
+
+<body>
+
+    <div id="WABoton"></div>
+    
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid " style="margin: 0; width: 100%;" >
+            <div class="d-flex align-items-center">
+                <img src="{% static 'img/LogoVT.jpg' %}" alt="Perro" class="logo" style="width: 80px; margin-right: 10px;">
+                <span class="navbar-brand">Veterinaria Las Torres</span>
+            </div>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+             </button>
+             
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'principal' %}">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'agendar_cita' %}">Citas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'catalogo_urnas' %}">Urnas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'precios_servicios' %}">Precios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contacto' %}">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'iniciar_sesion' %}">Iniciar Sesión o Registrarse</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    
+
+    <!-- Contenido de la página -->
+    
+        {% block content %}
+    <div style="margin: 0; padding: 0; margin-top: 50px;"> <!-- Elimina los márgenes y rellenos del cuerpo de la página -->
+        <header class="header">
+            <section class="en-section" style="background-color:white; width: 100%; margin-top: 100px; height: auto; padding: 20px 0;">    
+                <h1 style="color: blue; font-size: 4vw; font-weight: bold; margin-top: 90px; text-align: center;">Veterinaria Las Torres</h1>
+                <h2 style="color: blue; font-size: 2.5vw;">El mejor servicio y cuidado para sus mascotas</h2>
+            </section>
+            
+            <section class="dos-section" style="background-color:#c7f7f7; width: 100%; height: auto; padding: 20px;">
+                <div style="text-align: center;">
+                    <p style="color: blue; font-size: 2.5vw; font-weight: bold;">Agenda una cita con</p>
+                    <p style="color: blue; font-size: 2.5vw; font-weight: bold;">nosotros</p>
+                    <a href="{% url 'agendar_cita' %}" class="btn" style="width: 80%; max-width: 350px; padding: 10px; display: inline-block; text-align: center; background-color: blue; color: white; text-decoration: none; border-radius: 5px;">Agendar cita</a>
+                </div>
+                <div style="text-align: center;">
+                    <p style="color: blue; font-size: 2.5vw; font-weight: bold;">o llámanos al</p>
+                    <p style="color: blue; font-size: 2.5vw; font-weight: bold;">teléfono</p>
+                    <a href="tel:9611909736" class="btn" style="width: 80%; max-width: 350px; padding: 10px; display: inline-block; text-align: center; background-color: blue; color: white; text-decoration: none; border-radius: 5px;">9611909736</a>
+                </div>
+            </section>
+
+            <section class="purpose-section" style="background-color:white; width: 100%; height: auto; padding: 20px;">
+                <div class="info-content" style="text-align: center;">
+                    <p style="color: blue; font-size: 2.5vw; font-weight: bold;">Nuestro propósito es brindar servicios de calidad para garantizar su bienestar y salud y ayudarle a recordar a su mascota con tranquilidad y bienestar.</p>
+                    <img src="{% static 'img/Mymascotas1.png' %}" alt="bonitos" class="pets" style="width: 90%; max-width: 800px; height: auto;">
+                </div>
+            </section>
+
+            <section class="description-section" style="background-color:#c7f7f7; width: 100%; height: auto; padding: 20px; text-align: center;">
+                <p style="color: blue; font-size: 2.5vw; font-weight: bold;">Ofrecemos una amplia gama de servicios veterinarios para cuidar de la salud y el bienestar de tu mascota, desde consultas médicas hasta cirugías especializadas.</p>
+                <p style="color: blue; font-size: 2.5vw; font-weight: bold;">La pérdida de una mascota puede provocar un dolor tan intenso como el de perder a un ser querido, ya que estos fieles compañeros dejan una huella profunda en nuestras vidas.</p>
+                <p style="color: blue; font-size: 2.5vw; font-weight: bold;">En Veterinaria Las Torres comprendemos la importancia de honrar y despedir adecuadamente a nuestros fieles amigos.</p>
+            </section>
+
+            <!-- Sección de imágenes -->
+            <section class="info-section" style="background-color:white; width: 100%; height: auto; padding: 20px;">
+                <h1 style="color: blue; font-size: 2.5vw; font-weight: bold; text-align: center;">Nuestros Servicios</h1>
+                <div class="info-content" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
+                    <div style="width: 200px; text-align: center;">
+                        <img src="{% static 'img/servicios.jpeg' %}" alt="servicios" style="width: 100%; display: block; margin: 0 auto;">
+                        <p style="color: blue; font-size: 20px; font-weight: bold;">Consulta médica</p>
+                        <p style="color: blue; font-size: 20px; font-weight: bold;">y evaluación</p>
+                    </div>
+                    <div style="width: 200px; text-align: center;">
+                        <img src="{% static 'img/cirugias.jpeg' %}" alt="cirugias3" style="width: 100%; display: block; margin: 0 auto;">
+                        <p style="color: blue; font-size: 20px; font-weight: bold;">Cirugías y tratamientos</p>
+                        <p style="color: blue; font-size: 20px; font-weight: bold;">quirúrgicos</p>
+                    </div>
+                    <div style="width: 200px; text-align: center;">
+                        <img src="{% static 'img/plagas.jpeg' %}" alt="estetica" style="width: 100%; display: block; margin: 0 auto;">
+                        <p style="color: blue; font-size: 20px; font-weight: bold;">Control de pulgas</p>
+                        <p style="color: blue; font-size: 20px; font-weight: bold;">y garrapatas</p>
+                    </div>
+                    <div style="width: 200px; text-align: center;">
+                        <img src="{% static 'img/estetica.jpeg' %}" alt="plagas" style="width: 100%; display: block; margin: 0 auto;">
+                        <p style="color: blue; font-size: 20px; font-weight: bold;">Estética y cuidado</p>
+                        <p style="color: blue; font-size: 20px; font-weight: bold;">del pelaje</p>
+                    </div>
+                    
+                </div>
+
+                <div class="info-content" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
+                    <div style="width: 200px; text-align: center;">
+                        <img src="{% static 'img/img-tiempo1.png' %}" alt="servicios" style="width: 100%; display: block; margin: 0 auto;">
+                        <p style="color: blue; font-size: 20px; font-weight: bold;">Recolección las 24 horas y</p>
+                        <p style="color: blue; font-size: 20px; font-weight: bold;">Entrega en su domicilio</p>
+                    </div>
+                    <div style="width: 200px; text-align: center;">
+                        <img src="{% static 'img/img-estrella.png' %}" alt="cirugias3" style="width: 100%; display: block; margin: 0 auto;">
+                        <p style="color: blue; font-size: 20px; font-weight: bold;">Cremación Individual </p>
+                        <p style="color: blue; font-size: 20px; font-weight: bold;">quirúrgicos</p>
+                    </div>
+                    <div style="width: 200px; text-align: center;">
+                        <img src="{% static 'img/imagen-urna.png' %}" alt="estetica" style="width: 100%; display: block; margin: 0 auto;">
+                        <p style="color: blue; font-size: 20px; font-weight: bold;">urna y placa con el </p>
+                        <p style="color: blue; font-size: 20px; font-weight: bold;">nombre de su mascota</p>
+                    </div>
+                    <div style="width: 200px; text-align: center;">
+                        <img src="{% static 'img/imagen-doc.png' %}" alt="plagas" style="width: 100%; display: block; margin: 0 auto;">
+                        <p style="color: blue; font-size: 20px; font-weight: bold;">Certificado de  </p>
+                        <p style="color: blue; font-size: 20px; font-weight: bold;">Cremación</p>
+                    </div>
+                    <!-- Repite este patrón para las siguientes imágenes -->
+                </div>
+            </section>
+            
+            <section class="info-section2" style="background-color:#c7f7f7; width: 100%; height: auto; padding: 20px; text-align: center;">
+                <div class="info-content">
+                    <p style="color: blue; font-size: 30px; font-weight: bold;">Nuestro equipo de profesionales altamente capacitados están comprometidos con el bienestar de tus mascotas.</p>
+                </div>
+            </section>
+
+            <section class="info-section3" style="background-color:white; width: 100%; padding: 70px 20px; position: relative;">
+                <div class="info-content" style="text-align: center;">
+                    <h2 style="color: blue; font-size: 3vw; font-weight: bold;">Contacto</h2>
+                    <p style="color: blue; font-size: 2.5vw; font-weight: bold;">Si tienes alguna pregunta o deseas programar una cita,</p>
+                    <p style="color: blue; font-size: 2.5vw; font-weight: bold;">no dudes en comunicarte con nosotros.</p>
+                    <a href="{% url 'contacto' %}" class="btn" style="width: 80%; max-width: 350px; padding: 10px; display: inline-block; text-align: center; background-color: blue; color: white; text-decoration: none; border-radius: 5px;">Contáctanos</a>
+                </div>
+            </section>
+            
+            <section class="info-section4" style="background-color: #c7f7f7; padding: 20px; position: relative;">
+    <div class="container" style="text-align: center;">
+        <div style="position: fixed; right: 20px; top: 200px; z-index: 1000;">
+            <a href="{% url 'comentarios_view' %}" class="btn comentario"
+               style="display: block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; margin-bottom: 10px;">
+                Comentarios
+            </a>
+            <!-- Botón "Mis Citas" -->
+            <a href="{% url 'mis_citas' %}" class="mis-citas-float-btn"
+               style="display: block; padding: 10px 20px; margin-top: 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">
+               Mis Citas
+            </a>
+        </div>
+    </div>
+</section>
+
+<style>
+    @media (max-width: 768px) {
+        /* Para pantallas más pequeñas, ajustamos la posición y tamaño de los botones */
+        .mis-citas-float-btn {
+            position: static; /* Cambiamos el comportamiento de posición a relativo en pantallas pequeñas */
+            margin-bottom: 20px;
+            width: 100%; /* El botón ocupará todo el ancho disponible */
+        }
+        .btn {
+            position: static; 
+            margin-bottom: 20px;
+            width: 100%; 
+        }
+    }
+</style>
+
+
+            <!-- Enlazar JS Floating WhatsApp -->
+    <script type="text/javascript" src="https://rawcdn.githack.com/jerfeson/floating-whatsapp/0310b4cd88e9e55dc637d1466670da26b645ae49/floating-wpp.min.js"></script>
+
+
+            <!-- Inicializar el botón de WhatsApp con el nombre de usuario -->
+
+            <div id="WABoton"></div>   
+    <script>
+        jQuery(document).ready(function($){
+            // Reemplazar la variable 'usuario_perfil' con el nombre del perfil del usuario y veterinaria 
+            var usuarioPerfil = "{{ usuario.username }}"; 
+            var logoVeterinaria = "{% static 'img/LogoVT.jpg' %}"; // Ruta del logo
+            var nombreVeterinaria = "Veterinaria Las Torres"; // Nombre de la veterinaria
+            console.log("Valor de usuarioPerfil:", usuarioPerfil);
+
+            $('#WABoton').floatingWhatsApp({
+                phone: '+529611909736', // Número de WhatsApp de la veterinaria
+                popupMessage: `Hola: ${usuarioPerfil} ¿en qué podemos ayudarte?`, // Mensaje de bienvenida personalizado
+                message: "Quiero informacion de los servicios 🐕🐈 ", // Mensaje por defecto
+                showPopup: true, // Habilita el pop-up
+                headerTitle: 'Chat con Veterinaria Las Torres', // Título del header
+                headerColor: '#25D366', // Color del header
+                buttonImage: '<img src="https://rawcdn.githack.com/rafaelbotazini/floating-whatsapp/3d18b26d5c7d430a1ab0b664f8ca6b69014aed68/whatsapp.svg" />', // Icono de WhatsApp
+                size: '72px', // Tamaño del icono
+                position: "right", // Posición del botón flotante
+                avatar: logoVeterinaria, // Imagen del logo de la veterinaria
+                avatarName: usuarioPerfil, // Nombre del perfil del usuario
+                avatarRole: nombreVeterinaria, // Nombre de la veterinaria
+                zIndex: '99999'
+            });
+        });
+    </script>
+            
+
+        
+
+                <footer class="footer" style="background-color: #f2f2f2; color: #333; padding: 20px; text-align: center; font-size: 18px; border-top: 2px solid #ccc;">
+
+                    <p>© 2023 Veterinaria las Torres. Todos los derechos reservados.</p>
+                </footer>
+            </div>
+            
+        </header>
+
+
+    </div>
+
+    
+
+{% endblock %}
+    
+    <!-- Incluir aquí tus scripts o enlaces a archivos JavaScript y Bootstrap -->
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+
+</body>
+</html> 

@@ -1,0 +1,35 @@
+{% extends 'pagina_principal.html' %}
+
+{% block content %}
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f8f9fa;">
+    <div class="citas-container">
+        <h2 style="margin-bottom: 20px; color: #333;">Mis Citas</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Motivo</th>
+                    <th>Confirmada</th>
+                    <th>Cancelada</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cita in citas %}
+                <tr>
+                    <td>{{ cita.fecha }}</td>
+                    <td>{{ cita.hora }}</td>
+                    <td>{{ cita.motivo }}</td>
+                    <td>{{ cita.confirmada|yesno:"Sí,No" }}</td>
+                    <td>{{ cita.cancelada|yesno:"Sí,No" }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5">No tienes citas programadas.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

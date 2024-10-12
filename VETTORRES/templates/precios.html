@@ -1,0 +1,223 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VeterinariaTorres</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+
+   
+    <style>
+        body {
+            background-image: url("#");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    
+        /* Estilos para la barra de navegación */
+        .navbar {
+            position: fixed; /* Mantiene la barra de navegación fija en la parte superior */
+            top: 0;
+            width: 100%;
+            background-color: transparent; /* Fondo transparente por defecto */
+            transition: background-color 0.3s, box-shadow 0.3s; /* Transición suave */
+            z-index: 1000; /* Asegura que esté por encima de otros elementos */
+        }
+    
+        .navbar-scrolled {
+            background-color: #333333; /* Cambia el color de fondo cuando se desplaza */
+            color: #fff !important; /* Cambia el color del texto */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Agrega sombra */
+        }
+    
+        /* Estilos para enlaces dentro de la barra de navegación */
+        .navbar-nav .nav-link {
+            font-size: 25px; /* Tamaño de la fuente de los enlaces */
+            text-decoration: none; /* Elimina el subrayado */
+            color: #fff; /* Color del texto */
+            padding: 10px 15px; /* Espacio alrededor del texto */
+            display: inline-block; /* Permite aplicar padding */
+        }
+    
+        .nav-link:hover {
+            color: #ccc; /* Cambia el color del texto al pasar el ratón */
+        }
+    
+        .header h1, .header h2, .info-content, .info-content1, .info-content2, .info-content3 {
+            text-align: center;
+            color: blue;
+        }
+    
+        /* Otros estilos... (tu CSS previo aquí) */
+    </style>
+    
+   
+
+<style>
+    .mis-citas-float-btn {
+        position: fixed;
+        top: 250px;
+        /*bottom: 20px;  Distancia desde la parte inferior */
+        right: 20px;  /* Distancia desde la parte derecha */
+        z-index: 1000; /* Asegura que el botón esté por encima de otros elementos */
+        background-color: #007bff; /* Color de fondo del botón */
+        color: white; /* Color del texto */
+        padding: 10px 20px; /* Espaciado interno del botón */
+        border-radius: 5px; /* Bordes redondeados */
+        text-decoration: none; /* Eliminar subrayado del enlace */
+        font-weight: bold; /* Texto en negrita */
+    }
+
+    .mis-citas-float-btn:hover {
+        background-color:#007bff; /* Cambiar color al pasar el ratón */
+    }
+</style>
+
+<style>
+    /* Estilos para la barra de navegación */
+    .navbar {
+        position: fixed; /* Mantiene la barra de navegación fija en la parte superior */
+        top: 0;
+        width: 100%;
+        background-color: transparent; /* Fondo transparente por defecto */
+        transition: background-color 0.3s, box-shadow 0.3s; /* Transición suave para el cambio de fondo y sombra */
+    }
+
+    .navbar-scrolled {
+        background-color: #007bff; /* Cambia el color de fondo cuando se desplaza */
+        color: #fff !important; /* Cambia el color del texto cuando se desplaza */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Agrega una sombra cuando se desplaza */
+    }
+
+    /* Cambia el color del texto de los enlaces cuando la barra está desplazada */
+    .navbar-scrolled .nav-link {
+        color: #fff !important; /* Cambia el color del texto de los enlaces a blanco */
+    }
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(window).scroll(function() { 
+                var scroll = $(window).scrollTop(); 
+
+                if (scroll > 100) { 
+                    $(".navbar").addClass("navbar-scrolled"); 
+                } else {
+                    $(".navbar").removeClass("navbar-scrolled"); 
+                }
+            });
+        });
+    </script>
+
+    
+<style>
+    /* Estilo
+
+    /* Estilo básico para los enlaces */
+    a {
+        text-decoration: none; /* Quitar el subrayado predeterminado */
+        color: inherit; /* Mantener el color actual del texto */
+        position: relative; /* Para usar el pseudo-elemento ::after */
+    }
+
+    /* Subrayado azul al pasar el mouse */
+    a::after {
+        content: ''; /* Pseudo-elemento vacío para crear el subrayado */
+        position: absolute;
+        left: 0;
+        bottom: -2px; /* Ajusta la posición del subrayado debajo del texto */
+        width: 100%;
+        height: 5px; /* Grosor del subrayado */
+        background-color: blue; /* Color azul del subrayado */
+        transition: width 0.3s; /* Efecto suave al pasar el mouse */
+        width: 0; /* Inicialmente no se muestra */
+    }
+
+    a:hover::after {
+        width: 100%; /* Expande el subrayado cuando pasas el mouse */
+    }
+</style>
+        
+
+</head>
+<body>
+    
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid " style="margin: 0; width: 100%;" >
+            <div class="d-flex align-items-center">
+                <img src="{% static 'img/LogoVT.jpg' %}" alt="Perro" class="logo" style="width: 80px; margin-right: 10px;">
+                <span class="navbar-brand">Veterinaria Las Torres</span>
+            </div>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+             </button>
+             
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'principal' %}">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'agendar_cita' %}">Citas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'catalogo_urnas' %}">Urnas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'precios_servicios' %}">Precios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contacto' %}">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'iniciar_sesion' %}">Iniciar Sesión o Registrarse</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    {% block content %}
+    <div style="margin: 0; padding: 10px;">
+        <header class="header">
+            <section class="razamini-section" style="background-color: white; width: 100%; height: auto; padding: 20px;">
+                <h1 style="color: blue; font-size: 2.5rem; font-weight: bold; text-align: center; margin-bottom: -20px; margin-top: 90px;">Precios</h1>
+                <p style="color: blue; font-size: 1.5rem; margin-top: 30px; font-weight: bold;">Ofrecemos precios accesibles sin cargos adicionales,</p>
+                <p style="color: blue; font-size: 1.5rem; margin-top: -20px; font-weight: bold;">aceptamos transferencias bancarias, tarjetas de crédito y débito.</p>
+            </section>
+
+            <section class="dos-section" style="background-color: #c7f7f7; width: 100%; height: auto; padding: 70px;">
+                <div class="text-center">
+                    <a href="https://wa.me/529611909736" class="btn btn-primary btn-lg" style="max-width: 350px; width: 100%;">Solicitar un servicio</a>
+                </div>
+            </section>
+            
+            <section class="razamini-section" style="background-color: white; width: 100%; height: auto; padding: 20px;">
+                <p style="color: blue; font-size: 1.5rem; margin-top: -20px; font-weight: bold;">Nuestros servicios incluyen:</p>
+                <p style="color: blue; font-size: 1.5rem; margin-top: -20px; font-weight: bold;">Recolección en domicilio y veterinaria.</p>
+                <p style="color: blue; font-size: 1.5rem; margin-top: -20px; font-weight: bold;">Urna de madera sin costo con el servicio.</p>
+                <p style="color: blue; font-size: 1.5rem; margin-top: -20px; font-weight: bold;">Variedad de urnas a elegir.</p>
+                <p style="color: blue; font-size: 1.5rem; margin-top: -20px; font-weight: bold;">Entrega a domicilio.</p>
+            </section>
+        </header>
+
+        <footer class="footer" style="background-color: #f2f2f2; color: #333; padding: 20px; text-align: center; font-size: 1.125rem; border-top: 2px solid #ccc;">
+            <p>© 2023 Veterinaria las Torres. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+    {% endblock %}
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>

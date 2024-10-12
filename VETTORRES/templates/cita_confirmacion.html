@@ -1,0 +1,15 @@
+{% extends 'pagina_principal.html' %} <!-- extender tu plantilla base si tienes una -->
+{% block content %}
+<div>
+    <h2>Cita Confirmada</h2>
+    <p>Tu cita ha sido agendada exitosamente. A continuación, se muestran los detalles de la cita:</p>
+    <ul>
+        <li>Hola: {{ cita.usuario }}</li>
+        <li>Fecha: {{ cita.fecha }}</li>
+        <li>Hora: {{ cita.hora }}</li>
+        <li>Motivo: {{ cita.motivo }}</li>
+    </ul>
+    <p>Gracias por agendar tu cita con nosotros. ¡Esperamos verte pronto!</p>
+</div>
+
+{% endblock %}
