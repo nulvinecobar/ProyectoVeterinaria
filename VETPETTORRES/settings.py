@@ -120,8 +120,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'db_citas',
-        'USER': 'Escobar',
-        'PASSWORD': 'Adelita',
+        'USER': 'postgres',
+        'PASSWORD': 'Nulvin',
         'HOST': 'localhost',  # o la dirección IP del servidor
         'PORT': '5432',       # puerto por defecto de PostgreSQL
     }
