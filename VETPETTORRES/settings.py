@@ -50,7 +50,7 @@ PASSWORD_RESET_SESSION_EXPIRE = True
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['54.146.50.73', 'localhost']
 
 
 # Application definition
