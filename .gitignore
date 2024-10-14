@@ -10,8 +10,7 @@ PWVET/
 *.env
 
 # Archivos de base de datos
-db.sqlite3
-*.sqlite3
+
 
 # Archivos de configuración de IDEs
 .idea/
