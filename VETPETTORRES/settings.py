@@ -118,14 +118,11 @@ WSGI_APPLICATION = 'VETPETTORRES.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'db_citas',
-        'USER': 'postgres',
-        'PASSWORD': 'Nulvin',
-        'HOST': 'localhost',  # o la dirección IP del servidor
-        'PORT': '5432',       # puerto por defecto de PostgreSQL
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / "db.sqlite3",  # Crea un archivo SQLite en el directorio base del proyecto
     }
 }
+
 
 
 # Password validation
